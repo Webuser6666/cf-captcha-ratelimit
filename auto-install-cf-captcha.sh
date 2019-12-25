@@ -93,14 +93,14 @@ cat > unban.sh << EOF
 #!/bin/bash
 #Shit code but it works ;)
 RESULT=\`
-     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=25&mode=$cfmode&notes=add by noice&match=all&order=mode&direction=asc" \\
+     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=50&mode=$cfmode&notes=add by noice&match=all&order=mode&direction=asc" \\
      -H "X-Auth-Email: $cfemail" \\
      -H "X-Auth-Key: $cfapikey" \\
      -H "Content-Type: application/json"\\
 echo \$RESULT > /root/noice/json.json
 
 #countfile=\`cat /root/noice/json.json | wc -l\`
-for (( i=0; i <= 20; i++ ))
+for (( i=0; i <= 50; i++ ))
 do
 var=\`cat /root/noice/json.json | jq '.result['\$i'].id'\`
 if ! [[ "\$var" == "null" ]]; then

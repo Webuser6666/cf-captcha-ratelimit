@@ -11,3 +11,6 @@ bash auto-install-cf-captcha.sh
 
 --------------------------------
 Only works, Linux Ubuntu / Debian
+
+--------------------------------
+I will be glad if you can, add something to your own or suggest fixing or adding ;)

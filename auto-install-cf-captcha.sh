@@ -99,7 +99,7 @@ RESULT=\`
      -H "Content-Type: application/json"\\
 echo \$RESULT > /root/noice/json.json
 
-#countfile=\`cat /root/cf-captcha/json.json | wc -l\`
+#countfile=\`cat /root/noice/json.json | wc -l\`
 for (( i=0; i <= 20; i++ ))
 do
 var=\`cat /root/noice/json.json | jq '.result['\$i'].id'\`

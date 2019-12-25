@@ -1,1 +1,2 @@
 # cf-captcha-ratelimit
+Installation

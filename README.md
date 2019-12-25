@@ -1,6 +1,6 @@
 # cf-captcha-ratelimit
 -----------------------
-AntiDDoS для CloudFlare
+AntiDDoS for CloudFlare
 -----------------------
 
 Installation

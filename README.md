@@ -14,3 +14,5 @@ Only works, Linux Ubuntu / Debian
 
 --------------------------------
 I will be glad if you can, add something to your own or suggest fixing or adding ;)
+
+Donate, BTC - 12AGRKzHgCLFdG6bRxYxX1UBfJCYC3372C

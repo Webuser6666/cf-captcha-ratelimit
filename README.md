@@ -1,4 +1,3 @@
-# cf-captcha-ratelimit
 -----------------------
 AntiDDoS for CloudFlare
 -----------------------

@@ -8,3 +8,6 @@ cd cf-captcha-ratelimit
 chmod 777 auto-install-cf-captcha.sh
 
 bash auto-install-cf-captcha.sh
+
+--------------------------------
+Only works, Linux Ubuntu / Debian

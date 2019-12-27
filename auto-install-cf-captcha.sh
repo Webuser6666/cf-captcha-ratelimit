@@ -82,7 +82,7 @@ EOF
 cat > unban.sh << EOF
 #!/bin/bash
 RESULT=\`
-     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=50&mode=challenge&notes=add by noice&match=all&order=mode&direction=asc" \\
+     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=50&mode=$cfmode&notes=add by noice&match=all&order=mode&direction=asc" \\
      -H "X-Auth-Email: $cfemail" \\
      -H "X-Auth-Key: $cfapikey" \\
      -H "Content-Type: application/json"\`

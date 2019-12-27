@@ -1,17 +1,7 @@
 #!/bin/bash
 #chmod 777 auto-install-cf-captcha.sh
 #bash auto-install-cf-captcha.sh
-cat << "EOF"
- ::::::::      :::     :::::::::  :::::::::::  ::::::::  :::    :::     :::     
-:+:    :+:   :+: :+:   :+:    :+:     :+:     :+:    :+: :+:    :+:   :+: :+:   
-+:+         +:+   +:+  +:+    +:+     +:+     +:+        +:+    +:+  +:+   +:+  
-+#+        +#++:++#++: +#++:++#+      +#+     +#+        +#++:++#++ +#++:++#++: 
-+#+        +#+     +#+ +#+            +#+     +#+        +#+    +#+ +#+     +#+ 
-#+#    #+# #+#     #+# #+#            #+#     #+#    #+# #+#    #+# #+#     #+# 
- ########  ###     ### ###            ###      ########  ###    ### ###     ### 
-EOF
-
-printf "\033[1;34mCF-CAPTCHA RATELIMIT | Coded: Mr. Jaes | Telegram - @CloudFast \033[0m"
+printf "\033[1;34m˙·٠•●♥ Ƹ̵̡Ӝ̵̨̄Ʒ ♥●•٠·˙CF-CAPTCHA RATELIMIT˙·٠•●♥ Ƹ̵̡Ӝ̵̨̄Ʒ ♥●•٠·˙"
 
 if [ -d "/root/noice/" ]; then
   printf "\033[1;31m Detected.\r\n"
@@ -91,34 +81,26 @@ EOF
 
 cat > unban.sh << EOF
 #!/bin/bash
-#Shit code but it works ;)
 RESULT=\`
-     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=50&mode=$cfmode&notes=add by noice&match=all&order=mode&direction=asc" \\
+     curl -X GET "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules?page=1&per_page=50&mode=challenge&notes=add by noice&match=all&order=mode&direction=asc" \\
      -H "X-Auth-Email: $cfemail" \\
      -H "X-Auth-Key: $cfapikey" \\
-     -H "Content-Type: application/json"\\
-echo \$RESULT > /root/noice/json.json
+     -H "Content-Type: application/json"\`
 
-#countfile=\`cat /root/noice/json.json | wc -l\`
 for (( i=0; i <= 50; i++ ))
 do
-var=\`cat /root/noice/json.json | jq '.result['\$i'].id'\`
+var=\`echo \$RESULT | jq '.result['\$i'].id'\`
 if ! [[ "\$var" == "null" ]]; then
-echo \$var  | tr --delete '"' >> /root/noice/decode.json
-fi
-done
-
-id=\`cat /root/noice/decode.json\`
-ln=\`echo \$id\`
+ln=\`echo \$var | tr --delete '"'\`
 for number in \$ln; do
-curl -X DELETE "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules/'"\$number"'" \\
+curl -X DELETE "https://api.cloudflare.com/client/v4/zones/$cfzoneid/firewall/access_rules/rules/"\$number"" \\
      -H "X-Auth-Email: $cfemail" \\
-     -H "X-Auth-Key:  $cfapikey" \\
+     -H "X-Auth-Key: $cfapikey" \\
      -H "Content-Type: application/json" \\
      --data '{"cascade":"none"}'
 done
-rm decode.json
-rm json.json
+fi
+done
 EOF
 
 chmod 500 /root/noice/
@@ -140,6 +122,9 @@ else
 fi
 
 printf "\033[1;32mInstall Done!\033[0m"
+printf "\r\n\r\n"
+printf "\033[1;34m Coded: Mr. Jaes | Telegram - @CloudFast \033[0m"
+printf "\r\n\r\n"
 printf "\033[1;32m Donate, BTC - 12AGRKzHgCLFdG6bRxYxX1UBfJCYC3372C \033[0m"
 printf "\r\n\r\n"
 exit
